@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+    #myTable {
+        border-collapse:collapse;
+            }
+    #myTable td, 
+    #myTable th {
+        padding:5px;
+        border:1px solid #ccc;
+            }
+#myTable th {
+        background-color:#eee;
+        }
+</style>
+<body>
+<!-- JavaScript function: Clones the template and appends it to the normal content -->
+<button onclick="addRow();">Add Row</button>
+<!-- Template Content -->
+<template id="newRow">
+<tr><td>Cell</td><td>Cell</td><td>Cell</td></tr>
+</template>
+<!-- Normal Content -->
+<table id="myTable" contenteditable>
+<tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr>
+</table>
+
+</body>
+<script>
+        function addRow() {
+        var myTemplate = document.getElementById('newRow'),
+            normalContent = document.getElementById('myTable'),
+            clonedTemplate = myTemplate.content.cloneNode(true);
+            normalContent.appendChild(clonedTemplate);
+            }
+</script>

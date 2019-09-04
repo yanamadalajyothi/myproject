@@ -1,0 +1,17 @@
+<body>
+<template>
+        <h1>Hello world</h1>
+</template>
+
+<div id="host" style="color:red"></div>
+<div id="main" ></div>
+<script>
+        const template = document.querySelector('template');
+        const node =template.content;
+        
+        const host=document.getElementById("host");
+        const main=document.getElementById("main");
+        main.appendChild(node);
+        host.appendChild(node);
+    </script>
+</body>

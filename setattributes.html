@@ -1,0 +1,28 @@
+<body>
+    <h1>setting attributes</h1>
+
+    <my-element filter="hello"></my-element>
+
+</body>
+<script>
+        class MyElement extends HTMLElement
+        {
+        constructor()
+        {
+            super();
+            console.log(this.getAttribute("filter"));
+        }
+        static get observedAttributes()
+        {
+            return ["filter"]
+        }
+         attributeChangedCallback(name,oldval,newval)
+        {
+            this['filter']=newval;
+            console.log(this.getAttribute("filter"));
+        }
+        }
+    customElements.define("my-element",MyElement);
+    var change=document.getElementsByTagName("my-element")[0];
+    change.setAttribute("filter","jyothi");
+</script>

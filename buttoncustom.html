@@ -1,0 +1,30 @@
+<body>
+<button id="B1">create</button>
+  <button id="B2">attach</button>
+  <button id="B3">define</button>
+</body>
+<script>
+   
+class CE extends HTMLElement {
+    constructor() {
+      super()
+      console.info( 'constructed' )
+    }
+    connectedCallback() {
+      console.info( 'connected' )
+      this.innerHTML = 'Hello'  //can't be set in constructor()
+    }
+  }
+  
+  B1.onclick = function () {
+    ce = document.createElement( 'c-e' )
+    ce.textContent = 'unknown'
+  }
+  B2.onclick = function () {
+    document.body.appendChild( ce )
+  }
+  B3.onclick = function () {
+    customElements.define( 'c-e', CE)  
+  }
+</script>
+  
